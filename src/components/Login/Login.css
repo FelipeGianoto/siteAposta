@@ -1,0 +1,86 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+
+body {
+	background: #2F2F2F;
+	color: #ffffff;
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.logo {
+	background-image: url('./../../static/logo.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100px;
+	height: 60px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.menu {
+	border-top: 5px solid #259FF4;
+	margin-left: auto;
+	margin-right: auto;
+	width: 360px;
+	align-self: center;
+	margin-top: 20px;
+	background: #FFFFFF;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	color: black;
+}
+
+.opcoes {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 80px;
+}
+
+.form {
+	margin-top: 30px;
+}
+
+.input-group {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+}
+
+.input-group input {
+	align-self: center;
+	margin-bottom: 40px;
+	padding: 10px;
+	border: none;
+	width: 80%;
+	background-color: transparent;
+	border-bottom: 1px solid black;
+	color: black;
+	font-size: 16px;
+	outline: none;
+}
+
+.button-opcoes {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: transparent;
+	border-bottom: 1px solid #259FF4;
+	color: black;
+	transition: background-color 0.5s;
+}
+
+.button-opcoes:hover {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #259FF4;
+	color: white;
+}
+
+.selected {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #259FF4;
+	color: white;
+}
