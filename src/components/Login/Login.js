@@ -5,8 +5,19 @@ import api from '../../services/api';
 
 async function loginUser(credentials) {
   try {
-    const response = await api.post('/user/authenticate', credentials)
-    console.log(response.data)
+    const response = await api.post('/user/authenticate', credentials).then(
+      getUserAuth(credentials)
+    )
+    return response.data;
+  } catch (e) {
+    console.log("ERROU")
+  }
+}
+
+async function getUserAuth(credentials){
+  try {
+    const response = await api.get(`/user/auth?email=${credentials.email}&password=${credentials.password}`)
+    console.log(response)
     return response.data;
   } catch (e) {
     console.log("ERROU")
@@ -41,7 +52,7 @@ export default function Login({ setToken }) {
 
   const handleSubmitRegister = async e => {
     e.preventDefault();
-    const token = await loginUser({
+    const token = await registerUser({
       email,
       nome,
       password
@@ -59,10 +70,10 @@ export default function Login({ setToken }) {
       <div class="menu">
         <div>
           <div className="opcoes">
-            <button className={opcao == 'login' ? "selected" : "button-opcoes"} onClick={() => handleOpcaoClick('login')}>Login</button>
-            <button className={opcao == 'registrar' ? "selected" : "button-opcoes"} onClick={() => handleOpcaoClick('registrar')}>Registrar-se</button>
+            <button className={opcao === 'login' ? "selected" : "button-opcoes"} onClick={() => handleOpcaoClick('login')}>Login</button>
+            <button className={opcao === 'registrar' ? "selected" : "button-opcoes"} onClick={() => handleOpcaoClick('registrar')}>Registrar-se</button>
          </div>
-          {opcao == "login" ? <>
+          {opcao === "login" ? <>
             <div className='form'>
               <form onSubmit={handleSubmit}>
                 <div class="input-group">

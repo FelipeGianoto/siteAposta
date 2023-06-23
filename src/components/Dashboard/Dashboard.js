@@ -3,7 +3,7 @@ import './Dashboard.css';
 
 const prizes = ['1', '2', '3', '4', '5'];
 
-export default function Dashboard({ saldo, setSaldo }) {
+export default function Dashboard({ saldo, setSaldo, setToken }) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectedPrize, setSelectedPrize] = useState(null);
   const [selectedButton, setSelectedButton] = useState(null);
@@ -42,7 +42,7 @@ export default function Dashboard({ saldo, setSaldo }) {
         timer = setTimeout(() => {
           setSelectedPrize(prizes[i]);
           console.log(i);
-          if (i != 4) {
+          if (i !== 4) {
             i++;
           } else {
             i = 0;
@@ -57,7 +57,7 @@ export default function Dashboard({ saldo, setSaldo }) {
         clearTimeout(timer);
         setSelectedPrize(prizes[randomIndex]);
         setIsSpinning(false);
-        setResultado(selectedButton == randomIndex + 1 ? true : false)
+        setResultado(selectedButton === randomIndex + 1 ? true : false)
       }, 5000);
     }else{
       alert("Coloque uma quantia!")
@@ -74,7 +74,7 @@ export default function Dashboard({ saldo, setSaldo }) {
         <p className='item'>Blackjack</p>
         <p className='item'>Bacará</p>
         <p className='item'>Caça-níqueis</p>
-        <button className="logout-button">Deslogar</button>
+        <button className="logout-button" onClick={() => setToken(null)}>Deslogar</button>
       </div>
       <div className="column column-expanded">
         {resultado != null &&
@@ -124,7 +124,7 @@ export default function Dashboard({ saldo, setSaldo }) {
           <h4>Quantidade para aposta</h4>
           <input className='input-field' onChange={handleAmountChange} placeholder='Valor apostado' />
           <button className='button-apostar' onClick={handleBetClick}>Apostar!</button>
-          {valorApostado != 0 &&
+          {valorApostado !== 0 &&
             <small className="valor-apostado">Valor apostado: {valorApostado} R$</small>
           }
         </div>

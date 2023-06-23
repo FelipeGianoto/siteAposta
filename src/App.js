@@ -22,7 +22,7 @@ function App() {
         <button className="navbar__deposit-button">Fazer Depósito</button>
       </nav>
       <Routes>
-        <Route path="/" element={<Dashboard saldo={saldo} setSaldo={setSaldo} />} />
+        <Route path="/" element={<Dashboard saldo={saldo} setSaldo={setSaldo} setToken={setToken}/>} />
         <Route path="/preferences" element={<Preferences />} />
       </Routes>
     </div>
